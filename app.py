@@ -1,5 +1,5 @@
 # =========================================================
-# app.py — WattWise Streamlit App
+# app.py — BESSelligence Streamlit App
 # Main entry point. Run with: streamlit run app.py
 # =========================================================
 # import joblib
@@ -15,7 +15,7 @@ import plotly.graph_objects as go
 # Page configuration — must be the first Streamlit call
 # =========================================================
 st.set_page_config(
-    page_title="WattWise | Electricity Price Forecasting",
+    page_title="BESSelligence | Electricity Price Forecasting",
     page_icon="⚡",
     layout="wide",
 )
@@ -55,12 +55,12 @@ df_test = load_test_predictions()
 # Sidebar — project info
 # =========================================================
 with st.sidebar:
-    st.title("⚡ WattWise")
+    st.title("⚡ BESSelligence")
     st.markdown("---")
 
     st.markdown("### About")
     st.markdown(
-        "WattWise forecasts **day-ahead electricity prices** "
+        "BESSelligence forecasts **day-ahead electricity prices** "
         "for the German market (EPEX SPOT) using a CatBoost model "
         "trained on ENTSO-E generation, weather, and fuel price data."
     )
@@ -93,14 +93,8 @@ with st.sidebar:
         "Max Discharge Power [MW]",
         min_value=0.5, max_value=5.0, value=2.0, step=0.5,
     )
-    ETA_CHARGE = st.slider(
-        "Charging Efficiency",
-        min_value=0.70, max_value=1.00, value=0.95, step=0.01,
-    )
-    ETA_DISCHARGE = st.slider(
-        "Discharging Efficiency",
-        min_value=0.70, max_value=1.00, value=0.95, step=0.01,
-    )
+    ETA_CHARGE    = 0.95 
+    ETA_DISCHARGE = 0.95  
 
     # SOC init and final are locked to 50% of capacity
     SOC_INIT_MWH  = SOC_MAX_MWH * 0.5
@@ -117,7 +111,7 @@ with st.sidebar:
 # =========================================================
 # Main area — tabs
 # =========================================================
-st.title("⚡ WattWise — Electricity Price Forecasting")
+st.title("⚡ BESSelligence — Electricity Price Forecasting")
 st.markdown("Day-ahead price forecasting for the German electricity market")
 st.markdown("---")
 
